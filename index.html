@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+    
+
+
+<!--==========ここからCSS==========-->
+
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        }
+      body{
+        background: #b4ada9;
+      }
+      header {
+        /*ヘッダーを固定*/
+        position: fixed;
+        width: 100%;
+        height: 90px;
+        background: #000000;
+      }
+      #nav{
+        position: absolute;
+        top: 0;
+        left: -40%;
+        width: 40%;
+        height: 100vh;
+        background: #ffffff;
+        transition: .7s;
+      }
+      #nav ul{
+        padding-top: 80px;
+      }
+      #nav ul li{
+        list-style-type: none;
+        font-size: 20px;
+
+      }
+      #nav a{
+        display: block;
+        text-decoration: none;
+        color: #000000;
+        margin: 0 15px;
+        padding: 10px;
+        transition: .5s;
+      }
+      #nav li a:hover{
+        color:  #ffffff;
+        background:  #cd5c5c;
+        border-bottom: none;
+      }
+
+
+
+      #hamburger{
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        width: 50px;
+        height: 44px;
+        cursor: pointer;
+        transition: 1s;
+      }
+      .inner_line{
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: #ffffff;
+        transition: 1s;
+        border-radius: 4px;
+      }
+      #line1{
+        top: 0;
+      }
+      #line2{
+        top: 20px;
+      }
+      #line3{
+        bottom: 0px;
+      }
+      
+      .in{
+        transform: translateX(100%);
+      }
+      .line_1,.line_2,.line_3{
+        background: #000000;
+      }
+      .line_1{
+        /*45度回転させる*/
+        transform: translateY(20px)rotate(-45deg);
+        top: 0;
+      }
+      .line_2{
+        opacity: 0;
+      }
+      .line_3{
+        transform: translateY(-20px)rotate(45deg);
+        bottom:0;
+      }
+
+      
+    </style>
+<!--====================-->
+
+  </head>
+  <header>
+
+  <nav id="nav">
+    <ul>
+      <li><a href="#">AAA</a></li>
+      <li><a href="#">BBB</a></li>
+      <li><a href="#">CCC</a></li>
+    </ul>
+  </nav>
+
+  <div id="hamburger">
+    <span class="inner_line" id="line1"></span>
+    <span class="inner_line" id="line2"></span>
+    <span class="inner_line" id="line3"></span>
+  </div>
+</header>
+
+<!--==========ここからJavaScript==========-->
+
+    <script>
+      function hamburger(){
+        document.getElementById('line1').classList.toggle("line_1");
+        document.getElementById('line2').classList.toggle("line_2");
+        document.getElementById('line3').classList.toggle("line_3");
+        document.getElementById('nav').classList.toggle("in");
+      }
+
+      document.getElementById('hamburger').addEventListener('click' , function(){
+        hamburger();
+      });
+
+    </script>
+<!--====================-->
+
+  </body>
+
+</html>
